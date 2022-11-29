@@ -7,7 +7,6 @@ const Form = (): JSX.Element => {
   const [password, setPassword] = useState<PasswordRules>({
     length: 10,
     uppercase: true,
-    lowercase: true,
     numbers: true,
     symbols: true,
   });
@@ -19,7 +18,7 @@ const Form = (): JSX.Element => {
   const ref = useRef(null);
 
   const handleCheckboxChange = (
-    property: "uppercase" | "lowercase" | "numbers" | "symbols"
+    property: "uppercase" | "numbers" | "symbols"
   ): void => {
     if (property in password) {
       setPassword({
@@ -42,7 +41,6 @@ const Form = (): JSX.Element => {
       generatePassword(
         password.length,
         password.uppercase,
-        password.lowercase,
         password.numbers,
         password.symbols
       )
@@ -79,11 +77,6 @@ const Form = (): JSX.Element => {
         label="Include uppercase letters"
         checked={password.uppercase}
         onChange={() => handleCheckboxChange("uppercase")}
-      />
-      <Checkbox
-        label="Include lowercase letters"
-        checked={password.lowercase}
-        onChange={() => handleCheckboxChange("lowercase")}
       />
       <Checkbox
         label="Include numbers"
