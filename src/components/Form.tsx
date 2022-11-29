@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { generatePassword } from "../helpers/helpers";
 import { PasswordRules } from "../types/commons.type";
 import { Button, Checkbox } from "./";
 
 const Form = (): JSX.Element => {
   const [password, setPassword] = useState<PasswordRules>({
-    length: 5,
-    uppercase: false,
-    lowercase: false,
-    numbers: false,
-    symbols: false,
+    length: 10,
+    uppercase: true,
+    lowercase: true,
+    numbers: true,
+    symbols: true,
   });
   const [passwordLength, setPasswordLength] = useState(
     password.length.toString()
   );
+  const [generatedPassword, setGeneratedPassword] = useState("");
+  const [copy, setCopy] = useState(false);
+  const ref = useRef(null);
 
   const handleCheckboxChange = (
     property: "uppercase" | "lowercase" | "numbers" | "symbols"
@@ -33,12 +37,36 @@ const Form = (): JSX.Element => {
     });
   };
 
-  const generatePassword = () => {
-    // TODO : Implement password generation algorithm
+  const handleGeneratePassword = () => {
+    setGeneratedPassword(
+      generatePassword(
+        password.length,
+        password.uppercase,
+        password.lowercase,
+        password.numbers,
+        password.symbols
+      )
+    );
+  };
+
+  const copyPassword = () => {
+    if (generatedPassword.length > 0) {
+      navigator.clipboard.writeText(generatedPassword);
+      setCopy(true);
+      setInterval(() => {
+        setCopy(false);
+      }, 2000);
+    }
   };
 
   return (
     <div className="form">
+      <div>
+        <span ref={ref}>{generatedPassword}</span>
+        <Button onClick={copyPassword}>
+          {copy ? "Copied !" : "Copy text"}
+        </Button>
+      </div>
       <div>
         <label htmlFor="input-number">Password length</label>
         <input
@@ -67,7 +95,7 @@ const Form = (): JSX.Element => {
         checked={password.symbols}
         onChange={() => handleCheckboxChange("symbols")}
       />
-      <Button onClick={generatePassword}>Generate password</Button>
+      <Button onClick={handleGeneratePassword}>Generate password</Button>
     </div>
   );
 };
