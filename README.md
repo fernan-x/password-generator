@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/fernan-x/password-generator">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="src/assets/images/logo.gif" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Password Generator</h3>
@@ -22,7 +22,7 @@
     <a href="https://github.com/fernan-x/password-generator"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/fernan-x/password-generator">View Demo</a>
+    <a href="https://fernan-x.github.io/password-generator/">View Demo</a>
     ·
     <a href="https://github.com/fernan-x/password-generator/issues">Report Bug</a>
     ·
@@ -66,7 +66,10 @@
 
 ### Built With
 
-- [![React][react.js]][react-url]
+[![React][react.js]][react-url]
+[![Typescript][typescript]][typescript-url]
+[![Vite][vite]][vite-url]
+[![Sass][sass]][sass-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -82,26 +85,25 @@ npm install --global yarn
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
 
    ```sh
    git clone https://github.com/fernan-x/password-generator.git
    ```
 
-3. Install NPM packages
+2. Install NPM packages
 
    ```sh
    yarn
    ```
 
-4. Run the application in development mode
+3. Run the application in development mode
 
    ```sh
    yarn dev
    ```
 
-5. Build the application
+4. Build the application
 
    ```sh
    yarn build
@@ -209,3 +211,9 @@ Project Link: [https://github.com/fernan-x/password-generator](https://github.co
 [bootstrap-url]: https://getbootstrap.com
 [jquery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [jquery-url]: https://jquery.com
+[typescript]: https://img.shields.io/badge/Typescript-20232A?style=for-the-badge&logo=typescript
+[typescript-url]: https://www.typescriptlang.org/
+[vite]: https://img.shields.io/badge/Vite-20232A?style=for-the-badge&logo=vite
+[vite-url]: https://vitejs.dev/
+[sass]: https://img.shields.io/badge/Sass-20232A?style=for-the-badge&logo=sass
+[sass-url]: https://sass-lang.com/
