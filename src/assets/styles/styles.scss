@@ -1,5 +1,4 @@
-@import "animations";
-@import "colors";
+@import "animations", "colors", "components";
 
 body {
   width: 100%;
@@ -17,6 +16,7 @@ body {
   animation: gradient 15s ease infinite;
 
   font-family: $font;
+  letter-spacing: 0.03em;
   color: $color-text;
 }
 
@@ -71,30 +71,4 @@ h1 {
   box-shadow: 24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65;
   margin-right: 195px;
   flex-shrink: 0;
-}
-
-button {
-  background-color: $color-primary;
-  border: none;
-  border-radius: 8px;
-  padding: 0.8em 1em;
-
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: $color-primary-darker;
-  }
-}
-
-input {
-  border: none;
-  border-radius: 8px;
-  padding: 0.8em 1em;
-  outline: none;
-
-  &:focus {
-    outline: 2px solid $color-primary;
-  }
 }

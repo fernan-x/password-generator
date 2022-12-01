@@ -84,3 +84,22 @@ export const generatePassword = (
 
   return availableCharacters.slice(0, length).join("");
 };
+
+/**
+ * Sanitize a label to transform it into a valid html id.
+ * This method will :
+ * - Transform all uppercase into lowercase
+ * - Remove all special characters
+ * - Replace multiple spaces into one
+ * - Replace spaces with dashes
+ *
+ * @param {string} value Value to sanitize
+ * @returns {string} Sanitized value
+ */
+export const sanitizeToId = (value: string): string => {
+  return value
+    .toLowerCase()
+    .replaceAll(/[^a-zA-Z0-9 ]/g, "")
+    .replace(/ +(?= )/g, "")
+    .replaceAll(" ", "-");
+};

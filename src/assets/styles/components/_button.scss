@@ -1,0 +1,14 @@
+button {
+  background-color: $color-primary;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8em 1em;
+
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-primary-darker;
+  }
+}
