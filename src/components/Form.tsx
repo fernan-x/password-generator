@@ -1,7 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { generatePassword } from "../helpers/helpers";
+import { useCopy } from "../hooks";
 import { PasswordRules } from "../types/commons.type";
 import { Button, Checkbox } from "./";
+import { MdContentCopy } from "react-icons/md";
 
 const Form = (): JSX.Element => {
   const [password, setPassword] = useState<PasswordRules>({
@@ -14,8 +16,7 @@ const Form = (): JSX.Element => {
     password.length.toString()
   );
   const [generatedPassword, setGeneratedPassword] = useState("");
-  const [copy, setCopy] = useState(false);
-  const ref = useRef(null);
+  const [isCopied, copyValue] = useCopy();
 
   const handleCheckboxChange = (
     property: "uppercase" | "numbers" | "symbols"
@@ -47,23 +48,20 @@ const Form = (): JSX.Element => {
     );
   };
 
-  const copyPassword = () => {
-    if (generatedPassword.length > 0) {
-      navigator.clipboard.writeText(generatedPassword);
-      setCopy(true);
-      setInterval(() => {
-        setCopy(false);
-      }, 2000);
-    }
-  };
-
   return (
     <div className="form">
       <div>
-        <span ref={ref}>{generatedPassword}</span>
-        <Button onClick={copyPassword}>
-          {copy ? "Copied !" : "Copy text"}
-        </Button>
+        <span>{generatedPassword}</span>
+        {generatedPassword.length > 0 ? (
+          <>
+            <Button onClick={() => copyValue(generatedPassword)}>
+              <MdContentCopy />
+            </Button>
+            {isCopied ? (
+              <span className="popover-success">Copied !</span>
+            ) : null}
+          </>
+        ) : null}
       </div>
       <div>
         <label htmlFor="input-number">Password length</label>
