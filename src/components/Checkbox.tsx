@@ -1,4 +1,5 @@
 import React from "react";
+import { sanitizeToId } from "../helpers/helpers";
 
 interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   checked: boolean;
@@ -8,14 +9,15 @@ interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const Checkbox = (props: CheckboxProps): JSX.Element => {
   const { checked, onChange, label, ...restProps } = props;
+  const id = sanitizeToId(label);
   return (
     <div className="checkbox">
-      <label className="checkbox__label" htmlFor={`input-${label}`}>
+      <label className="checkbox__label" htmlFor={`input-${id}`}>
         {label}
       </label>
       <input
         className="checkbox__input"
-        id={`input-${label}`}
+        id={`input-${id}`}
         type="checkbox"
         onChange={onChange}
         checked={checked}

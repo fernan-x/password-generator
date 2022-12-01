@@ -1,7 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { generatePassword } from "../helpers/helpers";
+import { useCopy } from "../hooks";
 import { PasswordRules } from "../types/commons.type";
-import { Button, Checkbox } from "./";
+import { Button, Checkbox, Input } from "./";
+import { MdContentCopy } from "react-icons/md";
 
 const Form = (): JSX.Element => {
   const [password, setPassword] = useState<PasswordRules>({
@@ -14,8 +16,7 @@ const Form = (): JSX.Element => {
     password.length.toString()
   );
   const [generatedPassword, setGeneratedPassword] = useState("");
-  const [copy, setCopy] = useState(false);
-  const ref = useRef(null);
+  const [isCopied, copyValue] = useCopy();
 
   const handleCheckboxChange = (
     property: "uppercase" | "numbers" | "symbols"
@@ -29,11 +30,14 @@ const Form = (): JSX.Element => {
   };
 
   const handleLengthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPasswordLength(e.target.value);
-    setPassword({
-      ...password,
-      length: parseInt(e.target.value),
-    });
+    const value = e.target.value;
+    if (value === "" || parseInt(value) <= 20) {
+      setPasswordLength(value);
+      setPassword({
+        ...password,
+        length: parseInt(value),
+      });
+    }
   };
 
   const handleGeneratePassword = () => {
@@ -47,32 +51,36 @@ const Form = (): JSX.Element => {
     );
   };
 
-  const copyPassword = () => {
-    if (generatedPassword.length > 0) {
-      navigator.clipboard.writeText(generatedPassword);
-      setCopy(true);
-      setInterval(() => {
-        setCopy(false);
-      }, 2000);
-    }
-  };
-
   return (
     <div className="form">
-      <div>
-        <span ref={ref}>{generatedPassword}</span>
-        <Button onClick={copyPassword}>
-          {copy ? "Copied !" : "Copy text"}
-        </Button>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <span style={{ margin: "1em" }}>{generatedPassword}</span>
+        {generatedPassword.length > 0 ? (
+          <div className="popover">
+            <Button onClick={() => copyValue(generatedPassword)}>
+              <MdContentCopy />
+            </Button>
+            {isCopied ? (
+              <span className="popover__message success">Copied&nbsp;!</span>
+            ) : null}
+          </div>
+        ) : null}
       </div>
-      <div>
-        <label htmlFor="input-number">Password length</label>
-        <input
-          type="number"
-          value={passwordLength}
-          onChange={handleLengthChange}
-        />
-      </div>
+
+      <Input
+        label="Password length (20 max)"
+        type="number"
+        max={20}
+        value={passwordLength}
+        onChange={handleLengthChange}
+      />
+
       <Checkbox
         label="Include uppercase letters"
         checked={password.uppercase}

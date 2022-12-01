@@ -1,0 +1,16 @@
+.popover {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .popover__message {
+    margin: 0 0.3em;
+    left: 100%;
+    position: absolute;
+
+    &.success {
+      color: $color-success;
+    }
+  }
+}

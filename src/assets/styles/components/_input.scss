@@ -1,0 +1,15 @@
+@import "mixins";
+
+.input {
+  @include input-container;
+  .input__input {
+    border: none;
+    border-radius: 8px;
+    padding: 0.8em 1em;
+    outline: none;
+
+    &:focus {
+      outline: 2px solid $color-primary;
+    }
+  }
+}
