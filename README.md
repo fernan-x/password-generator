@@ -52,7 +52,6 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -60,7 +59,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/fernan-x/password-generator)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -85,6 +84,8 @@ npm install --global yarn
 
 ### Installation
 
+To run the application in local, you can follow this steps.
+
 1. Clone the repo
 
    ```sh
@@ -103,11 +104,17 @@ npm install --global yarn
    yarn dev
    ```
 
-4. Build the application
+To launch unit tests, you can run the `test` command.
 
-   ```sh
-   yarn build
-   ```
+```sh
+yarn test
+```
+
+To build the application, you can run the `build` command.
+
+```sh
+yarn build
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -115,9 +122,11 @@ npm install --global yarn
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+This interface aims to help you generating strong password. Choose your password length (20 characters max), select if you want to include uppercase, numbers or symbols on your password and generate it.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+After generation, you will see your generated password which can be copied with `Copy Button`.
+
+![Copy button](src/assets/images/copy.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -125,10 +134,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Nested Feature
+> There are no functionnalities on the roadmap for now. Do not hesitate to propose any features you want to see on the application.
 
 See the [open issues](https://github.com/fernan-x/password-generator/issues) for a full list of proposed features (and known issues).
 
@@ -169,16 +175,6 @@ Project Link: [https://github.com/fernan-x/password-generator](https://github.co
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
-- []()
-- []()
-- []()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
@@ -194,23 +190,9 @@ Project Link: [https://github.com/fernan-x/password-generator](https://github.co
 [license-url]: https://github.com/fernan-x/password-generator/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/fabien-fernandes-alves
-[product-screenshot]: images/screenshot.png
-[next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[next-url]: https://nextjs.org/
+[product-screenshot]: images/main-image.png
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
-[vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[vue-url]: https://vuejs.org/
-[angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[angular-url]: https://angular.io/
-[svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[svelte-url]: https://svelte.dev/
-[laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[laravel-url]: https://laravel.com
-[bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[bootstrap-url]: https://getbootstrap.com
-[jquery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[jquery-url]: https://jquery.com
 [typescript]: https://img.shields.io/badge/Typescript-20232A?style=for-the-badge&logo=typescript
 [typescript-url]: https://www.typescriptlang.org/
 [vite]: https://img.shields.io/badge/Vite-20232A?style=for-the-badge&logo=vite
