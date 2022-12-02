@@ -190,7 +190,7 @@ Project Link: [https://github.com/fernan-x/password-generator](https://github.co
 [license-url]: https://github.com/fernan-x/password-generator/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/fabien-fernandes-alves
-[product-screenshot]: images/main-image.png
+[product-screenshot]: src/assets/images/main-image.png
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
 [typescript]: https://img.shields.io/badge/Typescript-20232A?style=for-the-badge&logo=typescript
